@@ -40,8 +40,19 @@ const buildTimeAEST = new Date().toLocaleString("en-AU", {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{title}</title>
   <meta name="description" content={description}>
+  <meta name="keywords" content="Debbie Flynn, lawyers Wagga Wagga, solicitor Wagga Wagga, family law Wagga Wagga, conveyancing Wagga Wagga, legal aid Wagga Wagga, criminal law Riverina, wills and estates Wagga Wagga">
+  <meta name="author" content="Debbie Flynn & Associates">
   <meta name="color-scheme" content="dark light">
   <link rel="canonical" href={canonicalURL}>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+  <!-- Regional & Geographic Meta (Local SEO) -->
+  <meta name="geo.region" content="AU-NSW">
+  <meta name="geo.placename" content="Wagga Wagga">
+  <meta name="geo.position" content="-35.1082;147.3688">
+  <meta name="ICBM" content="-35.1082, 147.3688">
 
   <!-- Open Graph / Facebook / LinkedIn Meta Tags -->
   <meta property="og:type" content="website">
@@ -63,7 +74,9 @@ const buildTimeAEST = new Date().toLocaleString("en-AU", {
   <link rel="preload" href="/images/Wagga-River-Moon.webp" as="image">
   <link rel="preload" href="/images/Wagga-River-Sunset.webp" as="image">
 
-  <!-- Icons and Fonts -->
+  <!-- Font Preconnect & Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
