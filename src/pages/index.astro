@@ -47,6 +47,12 @@ import ContactInfo from '../components/ContactInfo.astro';
   .glass-box p { margin-bottom: 1rem; }
   .glass-box p:last-child { margin-bottom: 0; }
 
+  :global(html.light-theme) .glass-box {
+    background: var(--bg-light-glass);
+    border: var(--border-dark);
+    color: var(--text-dark, #1a1a1a);
+  }
+
   .sr-only {
     position: absolute;
     width: 1px;

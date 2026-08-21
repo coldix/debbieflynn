@@ -32,12 +32,33 @@
     border-bottom: 2px solid var(--accent-color);
     display: flex; align-items: center;
     color: var(--text-light);
+    transition: color 0.4s, border-color 0.4s;
   }
-  .glass-box h3 .fas { margin-right: 1rem; color: var(--accent-color); }
+  .glass-box h3 .fas { margin-right: 1rem; color: var(--accent-color); transition: color 0.4s; }
   .address-details { font-style: normal; }
   .contact-info p { display: flex; align-items: flex-start; font-size: 1.1rem; margin-bottom: 1rem; }
   .contact-info p:last-child { margin-bottom: 0; }
-  .contact-info .fas { color: var(--accent-color); margin-right: 1rem; width: 20px; margin-top: 5px; }
+  .contact-info .fas { color: var(--accent-color); margin-right: 1rem; width: 20px; margin-top: 5px; transition: color 0.4s; }
+
+  /* Light Theme overrides for ContactInfo component */
+  :global(html.light-theme) .glass-box {
+    background: var(--bg-light-glass);
+    border: var(--border-dark);
+  }
+  :global(html.light-theme) .glass-box h3 {
+    color: #1a1a1a !important;
+    border-bottom-color: var(--accent-light-theme, #7a5e29) !important;
+  }
+  :global(html.light-theme) .glass-box h3 .fas,
+  :global(html.light-theme) .contact-info .fas {
+    color: var(--accent-light-theme, #7a5e29) !important;
+  }
+  :global(html.light-theme) .contact-info a {
+    color: var(--accent-light-theme, #7a5e29) !important;
+  }
+  :global(html.light-theme) .contact-info a:hover {
+    color: #000 !important;
+  }
 
   @media (max-width: 768px) {
     .glass-box h3 { font-size: 1.5rem; }

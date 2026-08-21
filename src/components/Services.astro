@@ -38,8 +38,9 @@ const services = [
     border-bottom: 2px solid var(--accent-color);
     display: flex; align-items: center;
     color: var(--text-light);
+    transition: color 0.4s, border-color 0.4s;
   }
-  .glass-box h3 .fas { margin-right: 1rem; color: var(--accent-color); }
+  .glass-box h3 .fas { margin-right: 1rem; color: var(--accent-color); transition: color 0.4s; }
   .services-list { list-style: none; }
   .services-list li {
     margin-bottom: 0.75rem;
@@ -49,6 +50,21 @@ const services = [
     content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900;
     color: var(--accent-color);
     position: absolute; left: 0; top: 4px;
+    transition: color 0.4s;
+  }
+
+  /* Light Theme overrides for Services component */
+  :global(html.light-theme) .glass-box {
+    background: var(--bg-light-glass);
+    border: var(--border-dark);
+  }
+  :global(html.light-theme) .glass-box h3 {
+    color: #1a1a1a !important;
+    border-bottom-color: var(--accent-light-theme, #7a5e29) !important;
+  }
+  :global(html.light-theme) .glass-box h3 .fas,
+  :global(html.light-theme) .services-list li::before {
+    color: var(--accent-light-theme, #7a5e29) !important;
   }
 
   @media (max-width: 768px) {

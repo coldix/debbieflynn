@@ -1,8 +1,14 @@
 ---
 ---
-<button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle light and dark theme">
-  <span class="icon-light"><i class="fas fa-sun"></i> Light</span>
-  <span class="icon-dark"><i class="fas fa-moon"></i> Dark</span>
+<button class="theme-toggle-pill" id="theme-toggle-btn" aria-label="Toggle between light and dark theme">
+  <span class="pill-opt light-opt">
+    <i class="fas fa-sun"></i>
+    <span>Light</span>
+  </span>
+  <span class="pill-opt dark-opt">
+    <i class="fas fa-moon"></i>
+    <span>Dark</span>
+  </span>
 </button>
 
 <script>
@@ -27,21 +33,69 @@
 </script>
 
 <style>
-  .theme-toggle {
-    position: fixed; top: 1rem; right: 1rem;
-    background: rgba(255, 255, 255, 0.9);
-    color: var(--text-dark);
-    border: var(--border-dark);
-    padding: 0.5rem 1rem;
+  .theme-toggle-pill {
+    position: fixed;
+    top: 1.25rem;
+    right: 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.3rem 0.35rem;
     border-radius: 2rem;
     cursor: pointer;
-    font-family: var(--font-heading);
-    font-weight: 600;
     z-index: 1000;
-    transition: all 0.3s ease;
-    display: flex; align-items: center; gap: 0.5rem;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
   }
-  .theme-toggle:hover { transform: scale(1.05); }
-  .theme-toggle .icon-dark { display: none; }
+
+  .theme-toggle-pill:hover {
+    transform: translateY(-2px) scale(1.03);
+  }
+
+  .pill-opt {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.35rem 0.7rem;
+    border-radius: 1.5rem;
+    transition: all 0.3s ease;
+  }
+
+  /* Default (Dark Theme) */
+  :global(html:not(.light-theme)) .theme-toggle-pill {
+    background: rgba(13, 44, 68, 0.88);
+    border: 1px solid rgba(192, 160, 98, 0.5);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), 0 0 12px rgba(192, 160, 98, 0.2);
+  }
+
+  :global(html:not(.light-theme)) .dark-opt {
+    background: var(--accent-color, #c0a062);
+    color: #0d2c44;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  :global(html:not(.light-theme)) .light-opt {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  /* Light Theme */
+  :global(html.light-theme) .theme-toggle-pill {
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(122, 94, 41, 0.4);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15), 0 0 12px rgba(122, 94, 41, 0.15);
+  }
+
+  :global(html.light-theme) .light-opt {
+    background: var(--accent-light-theme, #7a5e29);
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  :global(html.light-theme) .dark-opt {
+    color: rgba(26, 26, 26, 0.7);
+  }
 </style>
