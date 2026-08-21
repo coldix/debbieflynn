@@ -1,0 +1,278 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+const {
+  title = "Debbie Flynn & Associates | Lawyers Wagga Wagga",
+  description = "Debbie Flynn and Associates - Wagga Wagga lawyers with 20+ years of experience in Family Law, Conveyancing, Criminal Law, Legal Aid, and Wills & Estates across the Riverina.",
+  image = "https://debbieflynn.com.au/images/Wagga-River-Moon.webp"
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://debbieflynn.com.au');
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M643X4VE1P"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-M643X4VE1P');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  <meta name="color-scheme" content="dark light">
+  <link rel="canonical" href={canonicalURL}>
+
+  <!-- Open Graph / Facebook / LinkedIn Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content={canonicalURL}>
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:image" content={image}>
+  <meta property="og:site_name" content="Debbie Flynn & Associates">
+  <meta property="og:locale" content="en_AU">
+
+  <!-- Twitter / X Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content={canonicalURL}>
+  <meta name="twitter:title" content={title}>
+  <meta name="twitter:description" content={description}>
+  <meta name="twitter:image" content={image}>
+
+  <!-- Image Preloads for Instant Theme Switch -->
+  <link rel="preload" href="/images/Wagga-River-Moon.webp" as="image">
+  <link rel="preload" href="/images/Wagga-River-Sunset.webp" as="image">
+
+  <!-- Icons and Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Immediate Theme Initialization Script (Prevents FOUC) -->
+  <script is:inline>
+    (function() {
+      const savedTheme = localStorage.getItem('dfa-theme');
+      const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+      if (savedTheme === 'light' || (!savedTheme && prefersLight)) {
+        document.documentElement.classList.add('light-theme');
+      }
+    })();
+  </script>
+
+  <!-- Advanced JSON-LD Schemas for Search Engines & AI Assistants -->
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "LegalService",
+      "@id": "https://debbieflynn.com.au/#legalservice",
+      "name": "Debbie Flynn & Associates",
+      "image": "https://debbieflynn.com.au/images/Wagga-River-Moon.webp",
+      "description": "Lawyers in Wagga Wagga with 20+ years of experience specializing in Family Law, Conveyancing, Criminal Law, Legal Aid, Children's Court, and Wills & Estates across the Riverina.",
+      "url": "https://debbieflynn.com.au",
+      "telephone": "+61269211060",
+      "email": "flynn@debbieflynn.com.au",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "35A Gurwood Street",
+        "addressLocality": "Wagga Wagga",
+        "addressRegion": "NSW",
+        "postalCode": "2650",
+        "addressCountry": "AU"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -35.1082,
+        "longitude": 147.3688
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "17:00"
+        }
+      ],
+      "founder": {
+        "@type": "Person",
+        "name": "Debbie Flynn"
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Wagga Wagga" },
+        { "@type": "AdministrativeArea", "name": "Riverina" },
+        { "@type": "State", "name": "New South Wales" }
+      ],
+      "knowsAbout": [
+        "Family Law",
+        "Conveyancing",
+        "Children's Court FACS",
+        "Legal Aid NSW",
+        "Criminal Defense",
+        "Wills and Estates",
+        "Property Law"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Legal Services Catalog",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Family Law",
+              "description": "Advice and legal consultation for divorce, child parenting arrangements, separation, and property settlements."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Conveyancing & Real Estate",
+              "description": "Full conveyancing services for buying and selling property in Wagga Wagga and NSW."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Legal Aid Representation",
+              "description": "Panel solicitor providing representation for eligible Legal Aid NSW matters."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Wills & Estate Planning",
+              "description": "Wills drafting, power of attorney, enduring guardianship, and probate applications."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What legal services do Debbie Flynn & Associates provide in Wagga Wagga?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Debbie Flynn & Associates specialize in Family Law, Conveyancing, Children's Court (FACS/DCJ), Legal Aid representation, Criminal Law and police matters, Wills and Estates, and Property Law."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are Debbie Flynn & Associates approved for Legal Aid NSW?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, Debbie Flynn & Associates are approved panel solicitors providing Legal Aid representation for eligible criminal law, family law, and Children's Court matters in Wagga Wagga and the Riverina."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where is the law office of Debbie Flynn & Associates located?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The office is located at 35A Gurwood Street, Wagga Wagga NSW 2650, Australia. Contact number is (02) 6921 1060."
+          }
+        }
+      ]
+    }
+  ]
+  </script>
+</head>
+<body>
+  <slot />
+
+  <footer>
+    <p>© 2025 Debbie Flynn & Associates</p>
+    <p>Web site by <a href="https://oze.au" target="_blank" rel="noopener noreferrer">oze.au</a></p>
+  </footer>
+</body>
+</html>
+
+<style is:global>
+  :root {
+    --bg-dark-glass: rgba(13, 44, 68, 0.78);
+    --bg-light-glass: rgba(255, 255, 255, 0.85);
+    --text-dark: #1a1a1a;
+    --text-light: #f0f0f0;
+    --accent-color: #c0a062;
+    --accent-light-theme: #7a5e29;
+    --border-light: 1px solid rgba(255, 255, 255, 0.18);
+    --border-dark: 1px solid rgba(0, 0, 0, 0.1);
+    --font-main: 'Roboto', sans-serif;
+    --font-heading: 'Poppins', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html {
+    min-height: 100vh;
+  }
+
+  body {
+    font-family: var(--font-main);
+    background-color: #0d2c44;
+    color: var(--text-light);
+    line-height: 1.6;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  /* Fixed full-screen background overlay with theme crossfade */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: -1;
+    background: url('/images/Wagga-River-Moon.webp') no-repeat center center fixed;
+    background-size: cover;
+    transition: opacity 0.5s ease-in-out, background-image 0.5s ease-in-out;
+  }
+
+  /* --- Links & Footer --- */
+  a { color: var(--accent-color); text-decoration: none; transition: color 0.3s; }
+  a:hover { color: #fff; text-decoration: underline; }
+  footer {
+    text-align: center; padding: 2rem 1rem;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    position: relative; z-index: 1;
+    margin-top: auto;
+  }
+  footer a { font-weight: bold; }
+
+  /* ===================== LIGHT THEME ===================== */
+  html.light-theme body { color: var(--text-dark); background-color: #e5b078; }
+  html.light-theme body::before { background-image: url('/images/Wagga-River-Sunset.webp'); }
+  html.light-theme .glass-box { background: var(--bg-light-glass); border: var(--border-dark); }
+  html.light-theme h1 { color: #1a1a1a; text-shadow: 1px 1px 3px rgba(255,255,255,0.7); }
+  html.light-theme header h2 { color: var(--accent-light-theme); text-shadow: 1px 1px 2px rgba(255,255,255,0.6); }
+  html.light-theme .glass-box h3 { color: var(--text-dark); border-bottom-color: var(--accent-light-theme); }
+  html.light-theme .glass-box h3 .fas,
+  html.light-theme .services-list li::before,
+  html.light-theme .contact-info .fas { color: var(--accent-light-theme); }
+  html.light-theme a { color: var(--accent-light-theme); }
+  html.light-theme a:hover { color: #000; }
+  html.light-theme footer { color: var(--text-dark); text-shadow: 1px 1px 2px rgba(255,255,255,0.7); }
+  html.light-theme .theme-toggle { background: rgba(0, 0, 0, 0.75); color: #fff; border: var(--border-light); }
+  html.light-theme .theme-toggle .icon-light { display: none; }
+  html.light-theme .theme-toggle .icon-dark { display: inline-block; }
+</style>

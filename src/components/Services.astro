@@ -1,0 +1,57 @@
+---
+const services = [
+  "Family Law",
+  "Conveyancing",
+  "Children’s Court – FACS",
+  "Legal Aid",
+  "Criminal Law & Police Matters",
+  "Wills and Estates",
+  "Property Law & Contracts",
+  "Buying and Selling Homes"
+];
+---
+
+<section class="glass-box" aria-labelledby="services-heading">
+  <h3 id="services-heading"><i class="fas fa-gavel"></i>Our Services</h3>
+  <ul class="services-list">
+    {services.map(service => (
+      <li>{service}</li>
+    ))}
+  </ul>
+</section>
+
+<style>
+  .glass-box {
+    background: var(--bg-dark-glass);
+    border: var(--border-light);
+    border-radius: 1rem;
+    padding: 2rem;
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    transition: background 0.4s, color 0.4s, border-color 0.4s;
+  }
+  .glass-box h3 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    padding-bottom: 0.75rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--accent-color);
+    display: flex; align-items: center;
+    color: var(--text-light);
+  }
+  .glass-box h3 .fas { margin-right: 1rem; color: var(--accent-color); }
+  .services-list { list-style: none; }
+  .services-list li {
+    margin-bottom: 0.75rem;
+    position: relative; padding-left: 2rem;
+  }
+  .services-list li::before {
+    content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900;
+    color: var(--accent-color);
+    position: absolute; left: 0; top: 4px;
+  }
+
+  @media (max-width: 768px) {
+    .glass-box h3 { font-size: 1.5rem; }
+  }
+</style>

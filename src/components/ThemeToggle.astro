@@ -1,0 +1,47 @@
+---
+---
+<button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle light and dark theme">
+  <span class="icon-light"><i class="fas fa-sun"></i> Light</span>
+  <span class="icon-dark"><i class="fas fa-moon"></i> Dark</span>
+</button>
+
+<script>
+  function setupThemeToggle() {
+    const button = document.getElementById('theme-toggle-btn');
+    if (!button) return;
+
+    button.addEventListener('click', () => {
+      const isLight = document.documentElement.classList.contains('light-theme');
+      if (isLight) {
+        document.documentElement.classList.remove('light-theme');
+        localStorage.setItem('dfa-theme', 'dark');
+      } else {
+        document.documentElement.classList.add('light-theme');
+        localStorage.setItem('dfa-theme', 'light');
+      }
+    });
+  }
+
+  setupThemeToggle();
+  document.addEventListener('astro:after-swap', setupThemeToggle);
+</script>
+
+<style>
+  .theme-toggle {
+    position: fixed; top: 1rem; right: 1rem;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--text-dark);
+    border: var(--border-dark);
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    display: flex; align-items: center; gap: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+  .theme-toggle:hover { transform: scale(1.05); }
+  .theme-toggle .icon-dark { display: none; }
+</style>

@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+
+# AI Crawlers & LLM Indexers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Sitemap & LLM Discovery
+Sitemap: https://debbieflynn.com.au/sitemap.xml
+Link: https://debbieflynn.com.au/llms.txt; rel="llms-txt"

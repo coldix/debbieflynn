@@ -1,0 +1,66 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import ThemeToggle from '../components/ThemeToggle.astro';
+import Services from '../components/Services.astro';
+import ContactInfo from '../components/ContactInfo.astro';
+---
+
+<Layout title="Debbie Flynn & Associates | Lawyers Wagga Wagga">
+  <ThemeToggle />
+
+  <main class="container">
+    <Header />
+
+    <div class="content-wrapper">
+      <!-- Box 1: Introduction -->
+      <section class="glass-box" aria-labelledby="intro-heading">
+        <h3 id="intro-heading" class="sr-only">About Us</h3>
+        <p>We are based in Wagga Wagga, New South Wales and have been assisting clients throughout the Riverina and surrounding districts for 20+ years.</p>
+        <p>We listen, advise and consult with our clients through the course of their matter and provide a solution based approach to their legal problems.</p>
+        <p>As a small office, we are able to respond to our clients needs in a prompt and timely manner whilst providing a personal service tailored to our client’s needs.</p>
+      </section>
+
+      <!-- Box 2: Services -->
+      <Services />
+
+      <!-- Box 3: Contact Info -->
+      <ContactInfo />
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .container { max-width: 1100px; margin: 5rem auto 3rem; padding: 1rem; position: relative; z-index: 1; }
+  .content-wrapper { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+
+  .glass-box {
+    background: var(--bg-dark-glass);
+    border: var(--border-light);
+    border-radius: 1rem;
+    padding: 2rem;
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    transition: background 0.4s, color 0.4s, border-color 0.4s;
+  }
+
+  .glass-box p { margin-bottom: 1rem; }
+  .glass-box p:last-child { margin-bottom: 0; }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  @media (min-width: 992px) { .content-wrapper { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 768px) {
+    .container { margin: 3rem auto; }
+  }
+</style>

@@ -1,0 +1,45 @@
+---
+---
+<section class="glass-box contact-info" aria-labelledby="contact-heading">
+  <h3 id="contact-heading"><i class="fas fa-address-book"></i>Contact Us</h3>
+  <address class="address-details">
+    <p>
+      <i class="fas fa-map-marker-alt"></i>
+      <a href="https://maps.app.goo.gl/8Rt1J43wGrRnnQCX8" target="_blank" rel="noopener noreferrer">
+        35A Gurwood Street, Wagga Wagga 2650 NSW, Australia
+      </a>
+    </p>
+    <p><i class="fas fa-phone"></i> <a href="tel:+61269211060">02 6921 1060</a></p>
+    <p><i class="fas fa-envelope"></i> <a href="mailto:flynn@debbieflynn.com.au">flynn@debbieflynn.com.au</a></p>
+  </address>
+</section>
+
+<style>
+  .glass-box {
+    background: var(--bg-dark-glass);
+    border: var(--border-light);
+    border-radius: 1rem;
+    padding: 2rem;
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    transition: background 0.4s, color 0.4s, border-color 0.4s;
+  }
+  .glass-box h3 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    padding-bottom: 0.75rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--accent-color);
+    display: flex; align-items: center;
+    color: var(--text-light);
+  }
+  .glass-box h3 .fas { margin-right: 1rem; color: var(--accent-color); }
+  .address-details { font-style: normal; }
+  .contact-info p { display: flex; align-items: flex-start; font-size: 1.1rem; margin-bottom: 1rem; }
+  .contact-info p:last-child { margin-bottom: 0; }
+  .contact-info .fas { color: var(--accent-color); margin-right: 1rem; width: 20px; margin-top: 5px; }
+
+  @media (max-width: 768px) {
+    .glass-box h3 { font-size: 1.5rem; }
+  }
+</style>
